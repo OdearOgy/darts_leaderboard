@@ -1,0 +1,78 @@
+.leaderboard {
+	display: grid;
+	row-gap: 20px;
+	width: 60%;
+	height: 60vh;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	overflow: hidden scroll;
+
+	text-align: left;
+	padding: 20px;
+
+	border-radius: 3px;
+	background-color: #fff;
+	box-shadow: 3px 8px 10px rgba(0, 0, 0, 0.4);
+}
+
+.leaderboard::-webkit-scrollbar {
+	display: none;
+}
+
+.leaderboard a,
+.leaderboard a:visited,
+.leaderboard a:focus {
+	color: unset !important;
+	text-decoration: none;
+}
+
+.user {
+	display: grid;
+	column-gap: 20px;
+	/* grid-template-columns: auto; */
+	grid-template-areas: 'position img info';
+	justify-content: start;
+	justify-items: start;
+	align-items: center;
+	transition: all 0.2s ease;
+	padding: 5px 10px;
+	border-radius: 8px;
+}
+
+.user:hover {
+	background-color: #f4f5f7;
+}
+
+.userPosition {
+	grid-area: position;
+	font-weight: 700;
+	font-size: 1.8em;
+}
+
+.userImg {
+	grid-area: img;
+	width: 50px;
+	height: 50px;
+	border: 1px solid #292929;
+	border-radius: 50%;
+	position: relative;
+	background-color: #9575cd;
+}
+
+.userImg::before {
+	content: attr(data-letter);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	display: inline-block;
+}
+
+.userInfo {
+	grid-area: info;
+	font-size: 1.5em;
+}
