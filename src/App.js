@@ -16,7 +16,6 @@ import Loader from 'react-loader-spinner';
 const resource = createResource();
 
 function App() {
-	console.log(LeaderboardPage);
 	return (
 		<div className="App">
 			<Context.Provider
@@ -29,7 +28,6 @@ function App() {
 					<Route exact path="/" component={LandingPage} />
 					<Route exact path="/leaderboard" component={LeaderboardPage} />
 					<Route exact path="/games" component={GamesPage} />
-					<Route path="" />
 					<Route path="*" component={NotFound} />
 				</Switch>
 			</Context.Provider>

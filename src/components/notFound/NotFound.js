@@ -1,15 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './NotFound.module.css';
 
-const NotFound = () => {
+const NotFound = ({ history }) => {
 	return (
 		<div className={styles.notFound}>
 			<h1 className={styles.header}>Err. 404 Not Found</h1>
 			<p className={styles.description}>Don't Panic!</p>
-			<Link to="/">
-				<button className={styles.goBackBtn}>Go Back</button>
-			</Link>
+
+			<button className={styles.goBackBtn} onClick={history.goBack}>
+				Go Back
+			</button>
 		</div>
 	);
 };
