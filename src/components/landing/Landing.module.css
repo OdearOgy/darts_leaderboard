@@ -1,0 +1,17 @@
+.landing {
+	max-width: 1640px;
+	width: 100%;
+	margin: 20px auto;
+}
+
+.linkBtns {
+	padding: 8px 15px;
+	font-size: 2em;
+	text-decoration: none;
+	cursor: pointer;
+	background-color: transparent;
+	color: #172b4d;
+	border: 6px double #172b4d;
+	border-radius: 8px;
+	outline: none;
+}

@@ -7,18 +7,32 @@ import NotFound from './components/notFound/NotFound';
 import { LeaderboardPage, GamesPage, LandingPage } from './pages/';
 
 import { Route, Switch } from 'react-router-dom';
+import { Context } from './components/Context';
+import { createResource } from './components/Api';
+
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import Loader from 'react-loader-spinner';
+
+const resource = createResource();
 
 function App() {
 	console.log(LeaderboardPage);
 	return (
 		<div className="App">
-			<Switch>
-				<Route exact path="/" component={LandingPage} />
-				<Route exact path="/leaderboard" component={LeaderboardPage} />
-				<Route exact path="/games" component={GamesPage} />
-				<Route path="" />
-				<Route path="*" component={NotFound} />
-			</Switch>
+			<Context.Provider
+				value={{
+					resource,
+					Loader,
+				}}
+			>
+				<Switch>
+					<Route exact path="/" component={LandingPage} />
+					<Route exact path="/leaderboard" component={LeaderboardPage} />
+					<Route exact path="/games" component={GamesPage} />
+					<Route path="" />
+					<Route path="*" component={NotFound} />
+				</Switch>
+			</Context.Provider>
 
 			<Sky
 				images={{
