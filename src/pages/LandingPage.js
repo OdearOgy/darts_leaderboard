@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { Context } from '../components/Context';
+import React from 'react';
 import Landing from '../components/landing/Landing';
 
 export const LandingPage = () => {

@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { SignOut } from './Auth';
-import cookie from 'react-cookies';
 
 import styles from './Form.module.css';
 import { Button } from '../styledComponents';

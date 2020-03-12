@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Leaderboard.module.css';
-import { hosts } from '../../shared/constants/Settings';
 
 const Leaderboard = ({ resource }) => {
 	const users = resource.users.read().sort((a, b) => (a.score ? -1 : b.score ? 1 : 0));
-	const host = '/api/user';
 	return (
 		<div className={styles.leaderboard}>
 			{users.map((user, index) => (
