@@ -1,26 +1,10 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
 .notFound {
 	display: grid;
 	justify-content: center;
 	justify-items: center;
 	align-content: center;
 	row-gap: 50px;
-
-	width: 50%;
-	height: 60vh;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	position: absolute;
-	margin: auto;
-	background-color: #ffffffa2;
-	border: 1px solid #6b778ca2;
-	border-radius: 5px;
-	box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+	height: 100%;
 }
 
 .header {
@@ -35,7 +19,8 @@
 
 .goBackBtn {
 	padding: 8px 15px;
-	font-size: 2em;
+	margin: 15px auto;
+	font-size: 1.8em;
 	text-decoration: none;
 	cursor: pointer;
 	background-color: transparent;
@@ -43,4 +28,11 @@
 	border: 6px double #172b4d;
 	border-radius: 8px;
 	outline: none;
+	justify-self: center;
+	transition: all 0.5s ease-in-out;
+}
+
+.goBackBtn:hover {
+	background-color: #9575cd;
+	color: #fff;
 }

@@ -1,8 +1,8 @@
 import React, { Suspense, useContext } from 'react';
-import Leaderboard from '../components/leaderboard/Leaderboard';
+import { Link } from 'react-router-dom';
 import { Context } from '../components/Context';
-
-export const LeaderboardPage = () => {
+import { UserProfile, Button } from '../components/styledComponents';
+export const MyProfilePage = () => {
 	const { resource, Loader } = useContext(Context);
 	return (
 		<Suspense
@@ -13,7 +13,10 @@ export const LeaderboardPage = () => {
 				</>
 			}
 		>
-			<Leaderboard resource={resource} />
+			<UserProfile resource={resource} user="me" />
+			<Link to="/">
+				<Button title="Go Back" />
+			</Link>
 		</Suspense>
 	);
 };

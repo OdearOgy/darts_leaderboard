@@ -1,14 +1,22 @@
 import React from 'react';
 
-import Sky from 'react-sky';
-import './App.css';
-
 import NotFound from './components/notFound/NotFound';
-import { LeaderboardPage, GamesPage, LandingPage } from './pages/';
+import {
+	LeaderboardPage,
+	GamesPage,
+	LandingPage,
+	LoginPage,
+	SignupPage,
+	MyProfilePage,
+	UserProfilePage,
+} from './pages/';
 
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { Context } from './components/Context';
 import { createResource } from './components/Api';
+
+import Sky from 'react-sky';
+import styles from './App.module.css';
 
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import Loader from 'react-loader-spinner';
@@ -17,19 +25,25 @@ const resource = createResource();
 
 function App() {
 	return (
-		<div className="App">
+		<div className={styles.App}>
 			<Context.Provider
 				value={{
 					resource,
 					Loader,
 				}}
 			>
-				<Switch>
-					<Route exact path="/" component={LandingPage} />
-					<Route exact path="/leaderboard" component={LeaderboardPage} />
-					<Route exact path="/games" component={GamesPage} />
-					<Route path="*" component={NotFound} />
-				</Switch>
+				<div className={styles.appPage}>
+					<Switch>
+						<Route exact path="/" component={LandingPage} />
+						<Route exact path="/login" component={LoginPage} />
+						<Route exact path="/signup" component={SignupPage} />
+						<Route exact path="/leaderboard" component={LeaderboardPage} />
+						<Route exact path="/games" component={GamesPage} />
+						<Route exact path="/me" component={MyProfilePage} />
+						<Route exact path="user:id" component={UserProfilePage} />
+						<Route path="*" component={NotFound} />
+					</Switch>
+				</div>
 			</Context.Provider>
 
 			<Sky
@@ -47,4 +61,4 @@ function App() {
 	);
 }
 
-export default App;
+export default withRouter(App);
