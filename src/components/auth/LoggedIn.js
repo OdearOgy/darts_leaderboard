@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { SignOut } from './Auth';
 import cookie from 'react-cookies';
 
 import styles from './Form.module.css';
-
+import { Button } from '../styledComponents';
 const LoggedIn = () => {
 	const history = useHistory();
 
-	const handleLogout = () => {
-		cookie.remove('authToken', { path: '/' });
-		history.push('/');
+	const logout = history => {
+		SignOut(history);
 	};
 
 	return (
@@ -19,13 +19,13 @@ const LoggedIn = () => {
 			</h2>
 
 			<div className={styles.btnWrapper}>
-				<button className={styles.submit} onClick={() => history.push('/api/me')}>
-					My Profile
-				</button>
+				<Link to="/me">
+					<Button title="My Profile" />
+				</Link>
 
-				<button className={styles.submit} onClick={handleLogout}>
-					logout
-				</button>
+				<div onClick={() => logout(history)}>
+					<Button title="Logout" />
+				</div>
 			</div>
 		</>
 	);
