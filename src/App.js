@@ -40,7 +40,7 @@ function App() {
 						<Route exact path="/leaderboard" component={LeaderboardPage} />
 						<Route exact path="/games" component={GamesPage} />
 						<Route exact path="/me" component={MyProfilePage} />
-						<Route exact path="user:id" component={UserProfilePage} />
+						<Route exact path="/user/:id" component={UserProfilePage} />
 						<Route path="*" component={NotFound} />
 					</Switch>
 				</div>

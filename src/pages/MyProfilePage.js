@@ -3,9 +3,12 @@ import { Link, useHistory } from 'react-router-dom';
 import { SignOut } from '../components/auth';
 import { Context } from '../components/Context';
 import { UserProfile, Button } from '../components/styledComponents';
+import wrapPromise, { fetchUser } from '../components/Api';
 export const MyProfilePage = () => {
-	const { resource, Loader } = useContext(Context);
+	const { Loader } = useContext(Context);
 	const history = useHistory();
+
+	const resource = wrapPromise(fetchUser(null));
 
 	const logout = history => {
 		SignOut(history);
@@ -20,7 +23,7 @@ export const MyProfilePage = () => {
 				</>
 			}
 		>
-			<UserProfile resource={resource} user="me" />
+			<UserProfile resource={resource} />
 			<Link to="/">
 				<Button title="Go Back" />
 			</Link>

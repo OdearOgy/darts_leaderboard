@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './UserProfile.module.css';
-export const UserProfile = ({ resource, user }) => {
-	let profile;
-	user === 'me' ? (profile = resource.myProfile.read()) : (profile = resource.user.read());
+export const UserProfile = ({ resource }) => {
+	const profile = resource.read();
+	console.log(profile);
 	const { name, email, score } = profile;
 	return (
 		<div className={styles.user}>
