@@ -12,7 +12,7 @@
     ```
 4. Install node modules
     ```bash
-        npm start
+        npm i
     ```
 5. Run the server
     ```bash
